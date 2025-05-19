@@ -3,7 +3,7 @@
 import { DividendResponse } from "@/hooks/useDividendData"
 import { DividendCard } from "./DividendCard"
 
-interface DividendListProps {
+type DividendListProps = {
   dividendData: DividendResponse
 }
 

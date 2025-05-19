@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input"
 import { useSymbols } from "@/hooks/useSymbols"
 import { useState, useRef, useEffect, useMemo } from "react"
 
-interface SearchFormProps {
+type SearchFormProps = {
   searchSymbol: string
   setSearchSymbol: (value: string) => void
   handleSearch: (e: React.FormEvent) => void

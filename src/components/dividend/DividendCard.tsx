@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { DividendRecord } from "@/hooks/useDividendData"
 
-interface DividendCardProps {
+type DividendCardProps = {
   dividend: DividendRecord
 }
 
