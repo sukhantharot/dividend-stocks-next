@@ -40,9 +40,14 @@ export function SearchForm({ searchSymbol, setSearchSymbol, handleSearch }: Sear
     setShowSuggestions(false)
   }
 
+  const handleFormSubmit = (e: React.FormEvent) => {
+    setShowSuggestions(false)
+    handleSearch(e)
+  }
+
   return (
     <div className="relative" ref={suggestionsRef}>
-      <form onSubmit={handleSearch} className="mb-6">
+      <form onSubmit={handleFormSubmit} className="mb-6">
         <div className="flex gap-2">
           <Input
             type="text"
