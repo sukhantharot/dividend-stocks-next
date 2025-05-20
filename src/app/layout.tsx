@@ -37,6 +37,12 @@ export default function RootLayout({
                 >
                   Stock Details
                 </Link>
+                <Link
+                  href="/soon"
+                  className="text-sm font-medium transition-colors hover:text-primary"
+                >
+                  Soon
+                </Link>
               </div>
             </div>
           </div>
