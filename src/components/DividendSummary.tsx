@@ -27,13 +27,22 @@ interface SummaryResponse {
   timestamp: number
 }
 
-export function DividendSummary() {
-  const [year, setYear] = useState("2567")
-  const [summary, setSummary] = useState<SummaryResponse | null>(null)
-  const [loading, setLoading] = useState(true)
+interface DividendSummaryProps {
+  initialData: SummaryResponse
+}
+
+export function DividendSummary({ initialData }: DividendSummaryProps) {
+  const [year, setYear] = useState(initialData.year)
+  const [summary, setSummary] = useState<SummaryResponse>(initialData)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const fetchSummary = async () => {
+      if (year === initialData.year) {
+        setSummary(initialData)
+        return
+      }
+      
       setLoading(true)
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dividends-summary?year=${year}`)
@@ -41,14 +50,14 @@ export function DividendSummary() {
         setSummary(data)
       } catch (error) {
         console.error("Error fetching summary:", error)
-        setSummary(null)
+        setSummary(initialData)
       } finally {
         setLoading(false)
       }
     }
 
     fetchSummary()
-  }, [year])
+  }, [year, initialData])
 
   return (
     <div>
