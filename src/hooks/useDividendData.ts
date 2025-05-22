@@ -28,7 +28,7 @@ export function useDividendData() {
     if (!symbol) return
     setLoading(true)
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dividends?symbol=${symbol}`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dividends-panphor?symbol=${symbol}`)
       const data = await response.json()
       setDividendData(data)
     } catch (error) {
